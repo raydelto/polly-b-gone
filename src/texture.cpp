@@ -3,7 +3,7 @@
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
 #include <SDL/sdl.h>
-#include <SDL_image/SDL_image.h>
+#include <SDL/SDL_image.h>
 #include <iostream>
 #include <string>
 #include <vector>

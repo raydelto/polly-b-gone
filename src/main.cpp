@@ -5,7 +5,7 @@
 #include <SDL/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <TinyXML/tinyxml.h>
+#include <tinyxml.h>
 
 #include "room.h"
 #include "shader.h"
@@ -25,7 +25,7 @@ static const int defaultY = 50;
 static const float kd = .060f; // frame-rate dependent
 
 static bool run = true;
-static bool fullScreen = false;
+static bool fullScreen = true;
 
 static World* world = NULL;
 static bool wireframe = false;
@@ -193,6 +193,10 @@ static void eventLoop() {
 
 int main(int argc, char** argv) {
   SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+
+
+  SDL_PumpEvents();
+
 
   SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, 1);
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);

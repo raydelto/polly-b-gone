@@ -1,20 +1,19 @@
-CXXFLAGS = \
-	-O2 \
-	-I/System/Library/Frameworks/GLUT.framework/Headers \
-	-I/System/Library/Frameworks/OpenGL.framework/Headers \
-	-I/System/Library/Frameworks/SDL.framework/Headers \
-	-I/System/Library/Frameworks/SDL_image.framework/Headers \
-	-I/System/Library/Frameworks/SDL_mixer.framework/Headers \
-	-I/System/Library/Frameworks/TinyXML.framework/Headers
+CXXFLAGS = -L/System/Library/Frameworks
 
 LDFLAGS = \
+	-L/System/Library/Frameworks \
+	-I/usr/local/Cellar/tinyxml/2.6.2/include \
+	-I/Library/Frameworks/SDL.framework/Headers \
+	-I/Library/Frameworks/SDL_image.framework/Headers \
+	-F/Library/Frameworks \
 	-framework Cocoa \
 	-framework GLUT \
 	-framework OpenGL \
-	-framework SDL \
+	-framework SDL\
 	-framework SDL_image \
 	-framework SDL_mixer \
-	-framework TinyXML
+	-L/usr/local/Cellar/tinyxml/2.6.2/lib \
+	-ltinyxml
 
 RESOURCES = \
 	resources/Polly.icns \
@@ -87,10 +86,10 @@ obj/Polly-B-Gone.app : obj/main.out $(RESOURCES) resources/Info.plist Makefile
 	cp resources/Info.plist $@/Contents
 	cp $(RESOURCES) $@/Contents/Resources
 	mkdir -p $@/Contents/Frameworks
-	cp -R /System/Library/Frameworks/SDL.framework $@/Contents/Frameworks
-	cp -R /System/Library/Frameworks/SDL_image.framework $@/Contents/Frameworks
-	cp -R /System/Library/Frameworks/SDL_mixer.framework $@/Contents/Frameworks
-	cp -R /System/Library/Frameworks/TinyXML.framework $@/Contents/Frameworks
+	cp -R /Library/Frameworks/SDL.framework $@/Contents/Frameworks
+	cp -R /Library/Frameworks/SDL_image.framework $@/Contents/Frameworks
+	cp -R /Library/Frameworks/SDL_mixer.framework $@/Contents/Frameworks
+	cp /usr/local/Cellar/tinyxml/2.6.2/lib/libtinyxml.dylib $@/Contents/Resources
 	find $@/Contents/Frameworks -name Headers | xargs rm -r
 #	ln -sf ../../../../resources/world.xml $@/Contents/Resources/world.xml
 
