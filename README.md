@@ -16,9 +16,9 @@
 ## Controls
 
 * You can move Polly, using the W,A,S,D keys. 
-* SPACE pauses the game
-* F9 Toggles on/off worls textres
-* F10 Render helper vectors
+* SPACE pauses the game.
+* F9 Toggles on/off world textures.
+* F10 Render helper vectors.
 * F11 toggles the Full Screen mode.
 
 ## Documentation
